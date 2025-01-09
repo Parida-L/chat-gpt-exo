@@ -53,23 +53,6 @@ Pendant le processus, vous pouvez sélectionner :
 
 ---
 
-## Vérification de l'installation
-
-1. **Vérifiez que les navigateurs Playwright sont installés** :
-   ```bash
-   npx playwright install
-   ```
-   Cela garantit que les navigateurs (Chromium, Firefox, WebKit) sont correctement installés.
-
-2. **Lancez un test Playwright d'exemple** :
-   Si vous avez inclus des exemples lors de l'installation, lancez-les avec :
-   ```bash
-   npx playwright test
-   ```
-   Vous devriez voir les résultats des tests dans votre terminal.
-
----
-
 ## Résultat
 
 Votre projet est maintenant prêt à utiliser Playwright pour l'automatisation des tests de navigateur.
