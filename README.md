@@ -1,77 +1,113 @@
-# chat-gpt-exo
+# Documentation du Projet de Test Automatisé avec Playwright
 
-# Initialisation d'un projet avec Playwright
-
-Ce guide explique les étapes nécessaires pour initialiser un projet avec **Playwright**. Il suppose que **Node.js** et **Playwright** sont déjà installés sur votre machine.
+Ce projet a pour objectif de réaliser des tests automatisés avec Playwright en **TypeScript** pour tester le site Decathlon. Les consignes ont été suivies étape par étape, et des scripts spécifiques ont été créés et ajustés pour répondre aux exigences. Voici une description détaillée des exercices réalisés, des conclusions tirées et des améliorations apportées.
 
 ---
 
-## Prérequis
+## **Prérequis**
 
-1. **Vérifier que Node.js est installé**
-   
-   Pour vérifier que Node.js est installé, utilisez la commande suivante :
-   ```bash
-   node -v
-   ```
-   Vous devriez voir une version comme `v16.x.x` ou plus récente.
+Avant de commencer, assurez-vous que les étapes d'initialisation du projet ont été suivies correctement.  
+Ces étapes sont détaillées dans le fichier [**playwright-init.md**](./playwright-init.md), qui se trouve à la racine du projet. 
 
-2. **Vérifier que Playwright est installé**
-   
-   Pour vérifier que Playwright est installé, utilisez cette commande :
-   ```bash
-   npx playwright --version
-   ```
-   Vous devriez voir une sortie contenant la version de Playwright, par exemple : `Version 1.x.x`.
+Le fichier contient :
+- Les instructions pour installer Playwright.
+- La configuration initiale du projet.
+- Les commandes pour télécharger les navigateurs nécessaires.
 
 ---
 
-## Étapes d'initialisation
+## **1. Prompt Simple : Commander un Bonnet sur Decathlon**
 
-### 1. Initialiser un projet Node.js
+### Consigne
+- Prompt initial : *"Écris un test automatisé avec Playwright en TypeScript. Le cas de test est de commander un bonnet sur le site Decathlon."*
+- Créer un nouveau projet avec les étapes décrites dans un fichier **README.md**.
+- Le script généré a été enregistré dans le fichier `decath.1.bonnet.spec.ts`.
 
-Créez un projet Node.js dans le répertoire de votre choix :
-```bash
-npm init -y
-```
-Cette commande génère un fichier `package.json` avec des valeurs par défaut.
-
-### 2. Initialiser Playwright
-
-Utilisez la commande suivante pour configurer Playwright dans votre projet :
-```bash
-npm init playwright@latest
-```
-Cette commande :
-- Installe Playwright dans votre projet.
-- Configure les fichiers nécessaires (comme `playwright.config.ts`).
-- Vous invite à choisir les navigateurs et options de test.
-
-Pendant le processus, vous pouvez sélectionner :
-- Les navigateurs à installer (Chromium, Firefox, WebKit).
-- Les exemples et tests de base pour commencer rapidement.
+### Résultats
+- **Code généré :** Un test automatisé pour commander un bonnet sur le site Decathlon.
+- **Exécution :** Le test a échoué en raison de plusieurs erreurs liées aux **locators** (sélecteurs incorrects ou incompatibles avec la structure actuelle du site).
+- **Solution :** Les locators ont été corrigés manuellement pour s'adapter à la structure DOM du site.
+- **Conclusion :** Après corrections, le test a fonctionné correctement.
 
 ---
 
-## Vérification de l'installation
+## **2. Ajout d'Assertions**
 
-1. **Vérifiez que les navigateurs Playwright sont installés** :
-   ```bash
-   npx playwright install
-   ```
-   Cela garantit que les navigateurs (Chromium, Firefox, WebKit) sont correctement installés.
+### Consigne
+- À partir du code corrigé (`decath.1.bonnet.spec.ts`), un nouveau prompt a été envoyé pour demander l'ajout d'**assertions**.
+- Le script mis à jour a été enregistré dans le fichier `decath.2.bonnet.spec.ts`.
 
-2. **Lancez un test Playwright d'exemple** :
-   Si vous avez inclus des exemples lors de l'installation, lancez-les avec :
-   ```bash
-   npx playwright test
-   ```
-   Vous devriez voir les résultats des tests dans votre terminal.
+### Résultats
+- **Code généré :** Des assertions ont été ajoutées pour valider des points clés, comme la présence des éléments et la navigation correcte.
+- **Exécution :** Le test a fonctionné, mais un problème mineur de locator a été identifié.
+- **Conclusion :** Le code généré était globalement correct, nécessitant moins de corrections que dans le premier exercice. Une fois les erreurs mineures corrigées, le test était fonctionnel.
 
 ---
 
-## Résultat
+## **3. Implémentation du POM Design Pattern**
 
-Votre projet est maintenant prêt à utiliser Playwright pour l'automatisation des tests de navigateur.
-Vous pouvez commencer à écrire vos propres scripts dans le dossier `tests` généré par Playwright.
+### Consigne
+- Implémenter le test en utilisant le **Page Object Model (POM)**.
+- Créer un dossier `pages` contenant les objets suivants :
+  - **HomePage**
+  - **ProductPage**
+  - **SearchResultsPage**
+  - **CartPage**
+- Le script principal est enregistré dans `decath.3.bonnet.spec.ts`.
 
+### Résultats
+- **Code généré :** Un modèle POM a été mis en place, avec des méthodes bien définies pour chaque page.
+- **Exécution :** De nombreuses erreurs ont été constatées, principalement liées à des locators incorrects et à une gestion inadéquate des superpositions (modals).
+- **Solution :** J'ai repris une partie du code corrigé dans `decath.2.bonnet.spec.ts` pour ajuster les locators et améliorer la gestion des modals.
+- **Conclusion :** Une fois corrigé, le modèle POM fonctionnait parfaitement et offrait une meilleure modularité et maintenabilité.
+
+---
+
+## **4. Rédaction de Cas de Tests (Passants, Non-Passants, Critiques)**
+
+### Consigne
+- Rédiger des cas de tests passants, non-passants et critiques pour le site Decathlon.
+- Implémenter ces cas dans le projet et les tester.
+
+### Résultats
+- **Cas de tests créés :**
+  - **Passants :** 
+  - **Non-Passants :** 
+  - **Critiques :** 
+- **Exécution :** 
+- **Conclusion :** 
+
+---
+
+## **Organisation des Fichiers**
+- **Dossier `tests`:** Contient les fichiers de test principaux :
+  - `decath.1.bonnet.spec.ts` : Test initial.
+  - `decath.2.bonnet.spec.ts` : Test avec assertions.
+  - `decath.3.bonnet.spec.ts` : Test utilisant le POM.
+  - `decath.test.cases.spec.ts` : Cas de tests passants, non-passants et critiques.
+- **Dossier `pages`:** Contient les objets de page pour l'implémentation POM :
+  - `HomePage.ts`
+  - `ProductPage.ts`
+  - `SearchResultsPage.ts`
+  - `CartPage.ts`
+
+---
+
+## **Conclusion Générale**
+- Le projet a permis de couvrir plusieurs aspects des tests automatisés avec Playwright :
+  - Rédaction et exécution de tests basiques.
+  - Ajout d'assertions pour valider les points clés.
+  - Adoption du POM pour une meilleure organisation.
+  - Identification et correction des erreurs grâce à des cas de tests spécifiques.
+- **Améliorations possibles :**
+  - Ajouter des rapports de tests automatisés.
+  - Étendre les cas de tests pour inclure des scénarios plus complexes (multi-produits, annulations).
+  - Intégrer les tests dans un pipeline CI/CD.
+
+---
+
+## **Références**
+- [**playwright-init.md**](./playwright-init.md) : Instructions pour initialiser le projet.
+- [Documentation Playwright](https://playwright.dev/).
+
+Ce projet offre une base solide pour développer des tests automatisés robustes et maintenables avec Playwright. 🎯
