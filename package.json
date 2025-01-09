@@ -1,0 +1,22 @@
+{
+  "name": "chat-gpt-exo",
+  "version": "1.0.0",
+  "description": "npm init -y",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Parida-L/chat-gpt-exo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Parida-L/chat-gpt-exo/issues"
+  },
+  "homepage": "https://github.com/Parida-L/chat-gpt-exo#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.49.1",
+    "@types/node": "^22.10.5"
+  }
+}
